@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using PerelesoqTest.Infrastructure.States.Interfaces;
+using PerelesoqTest.Services.Logging;
 using Zenject;
 
 namespace PerelesoqTest.Infrastructure.States
 {
     public class GameStateMachine : IInitializable
     {
+        private readonly ILoggingService _logger;
+        
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _currentState;
 
-        public GameStateMachine()
+        public GameStateMachine(ILoggingService logger)
         {
+            _logger = logger;
+            
             _states = new Dictionary<Type, IExitableState>
             {
                 [typeof(BootstrapState)]    = new BootstrapState(this),
@@ -25,13 +30,17 @@ namespace PerelesoqTest.Infrastructure.States
         public void Initialize() => 
             Enter<BootstrapState>();
 
-        public void Enter<TState>() where TState : class, IState =>
+        public void Enter<TState>() where TState : class, IState
+        {
             ChangeState<TState>()
                 .Enter();
+        }
 
-        public void Enter<TState, TPayload>(TPayload payload) where TState : class, IPayloadedState<TPayload> =>
+        public void Enter<TState, TPayload>(TPayload payload) where TState : class, IPayloadedState<TPayload>
+        {
             ChangeState<TState>()
                 .Enter(payload);
+        }
 
 
         private TState GetState<TState>() where TState : class, IExitableState => 
@@ -44,6 +53,8 @@ namespace PerelesoqTest.Infrastructure.States
             var state = GetState<TState>();
             _currentState = state;
 
+            _logger.LogMessage($"state changed to {_currentState.GetType().Name}", nameof(GameStateMachine));
+            
             return state;
         }
     }

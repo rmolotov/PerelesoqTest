@@ -1,4 +1,5 @@
 ﻿using PerelesoqTest.Infrastructure.States;
+using PerelesoqTest.Services.Logging;
 using Zenject;
 
 namespace PerelesoqTest.Infrastructure.Installers
@@ -15,7 +16,7 @@ namespace PerelesoqTest.Infrastructure.Installers
 
         private void BindServices()
         {
-            
+            Container.Bind<ILoggingService>().To<LoggingService>().AsSingle().NonLazy();
         }
 
         private void BindFactories()
