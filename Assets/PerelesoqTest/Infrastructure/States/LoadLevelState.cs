@@ -1,26 +1,27 @@
 ﻿using System.Threading.Tasks;
+using PerelesoqTest.Infrastructure.SceneManagement;
 using PerelesoqTest.Infrastructure.States.Interfaces;
-using UnityEngine.SceneManagement;
 
 namespace PerelesoqTest.Infrastructure.States
 {
     public class LoadLevelState : IPayloadedState<string>
     {
-        private readonly GameStateMachine _stateMachine;
         private const string SceneName = "Level_test";
+        
+        private readonly GameStateMachine _stateMachine;
+        private readonly SceneLoader _sceneLoader;
 
-        public LoadLevelState(GameStateMachine gameStateMachine)
+        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader)
         {
             _stateMachine = gameStateMachine;
+            _sceneLoader = sceneLoader;
         }
 
         public async void Enter(string levelStaticData)
         {
             // TODO: show curtain
             
-            LoadScenesForLevel();
-
-            OnLoaded();
+            await LoadScenesForLevel();
         }
 
         public void Exit()
@@ -28,18 +29,13 @@ namespace PerelesoqTest.Infrastructure.States
 
         }
 
-        private void LoadScenesForLevel()
+        private async Task LoadScenesForLevel()
         {
-            // loader: load test scene, callback = onloaded, tmp:
-            
-            SceneManager.LoadScene(SceneName);
-            SceneManager.LoadScene($"{SceneName}_Env", LoadSceneMode.Additive);
-            SceneManager.LoadScene($"{SceneName}_Lights", LoadSceneMode.Additive);
-            SceneManager.LoadScene($"{SceneName}_Nav", LoadSceneMode.Additive);
-            SceneManager.LoadScene($"{SceneName}_UI", LoadSceneMode.Additive);
+            var sceneInstances = await _sceneLoader.LoadSet(SceneName, OnLoaded);
+            // todo: setup layers
         }
 
-        private async void OnLoaded()
+        private async void OnLoaded(string sceneName)
         {
             await InitUIRoot();
             await InitGameWold();

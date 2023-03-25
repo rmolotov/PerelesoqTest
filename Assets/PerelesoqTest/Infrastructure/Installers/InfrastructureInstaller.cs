@@ -1,4 +1,6 @@
-﻿using PerelesoqTest.Infrastructure.States;
+﻿using PerelesoqTest.Infrastructure.AssetManagement;
+using PerelesoqTest.Infrastructure.SceneManagement;
+using PerelesoqTest.Infrastructure.States;
 using PerelesoqTest.Services.Logging;
 using Zenject;
 
@@ -8,6 +10,9 @@ namespace PerelesoqTest.Infrastructure.Installers
     {
         public override void InstallBindings()
         {
+            Container.Bind<IAssetProvider>().To<AddressableProvider>().AsSingle();
+            Container.Bind<SceneLoader>().AsSingle();
+            
             BindServices();
             BindFactories();
             
