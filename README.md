@@ -105,3 +105,9 @@
 2. `Public`-методы.
 3. Коллбеки жизненного цикла Unity (`Awake`, `Start`, `OnDestroy`...)
 4. `Private`-методы.
+
+## Расширения редактора и инструменты
+Блокировка панелей `EditorWindowLock` (Editor/EditorExtensions):
+* CTRL + SPACE - блокировка панели **Inspector**,
+* CTRL + SHIFT + SPACE - блокировка панели **Project** 
+* или через меню `Edit/Custom Shortcuts`.
