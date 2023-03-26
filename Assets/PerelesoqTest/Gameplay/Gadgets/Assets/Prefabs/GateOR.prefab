@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1202604170031219955, guid: 246750ba87993bc448275a44e289674c, type: 3}
       propertyPath: m_Name
-      value: Gate OR
+      value: GateOR
       objectReference: {fileID: 0}
     - target: {fileID: 1202604170031219956, guid: 246750ba87993bc448275a44e289674c, type: 3}
       propertyPath: m_RootOrder
@@ -98,6 +98,10 @@ PrefabInstance:
     - target: {fileID: 6051148041878126952, guid: 246750ba87993bc448275a44e289674c, type: 3}
       propertyPath: m_text
       value: OR
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653580237259357832, guid: 246750ba87993bc448275a44e289674c, type: 3}
+      propertyPath: DisplayName
+      value: Gate OR
       objectReference: {fileID: 0}
     - target: {fileID: 8708960200585796865, guid: 246750ba87993bc448275a44e289674c, type: 3}
       propertyPath: m_Mesh

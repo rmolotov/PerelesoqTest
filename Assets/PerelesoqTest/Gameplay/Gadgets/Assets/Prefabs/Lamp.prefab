@@ -1653,6 +1653,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1061481520728041507}
+  - component: {fileID: 4382267958954957721}
+  - component: {fileID: 8347139864011163590}
+  - component: {fileID: 1240442373312320609}
   m_Layer: 0
   m_Name: Lamp
   m_TagString: Untagged
@@ -1679,6 +1682,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4382267958954957721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488502559412146252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811f25ead4454fc18853575c575d1f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  DisplayName: Lamp
+  Status: 
+  GadgetType: 6
+--- !u!114 &8347139864011163590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488502559412146252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bae7e82f18b4a78996fa89d7d1347c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 0
+  PowerPerHour: 30
+--- !u!114 &1240442373312320609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488502559412146252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ecd36144c2459c93c5a83678298eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 4382267958954957721}
+  power: {fileID: 8347139864011163590}
+  changeType: 1
+  lights:
+  - {fileID: 4419821855055792401}
+  - {fileID: 6281318341422545424}
+  emissiveMesh: {fileID: 0}
+  onMaterial: {fileID: 0}
+  offMaterial: {fileID: 0}
 --- !u!1 &9003575194112234733
 GameObject:
   m_ObjectHideFlags: 0

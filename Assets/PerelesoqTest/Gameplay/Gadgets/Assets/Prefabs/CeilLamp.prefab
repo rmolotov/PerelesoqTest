@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 2898381017872719860}
   - component: {fileID: 8490477803905463825}
   - component: {fileID: 7185220706437533140}
+  - component: {fileID: 1976370621947130355}
+  - component: {fileID: 6910746163014891924}
+  - component: {fileID: 1872118826471376611}
   m_Layer: 0
   m_Name: CeilLamp
   m_TagString: Untagged
@@ -83,3 +86,52 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1976370621947130355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684934527256959382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811f25ead4454fc18853575c575d1f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  DisplayName: Ceil Lamp
+  Status: 
+  GadgetType: 7
+--- !u!114 &6910746163014891924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684934527256959382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bae7e82f18b4a78996fa89d7d1347c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 0
+  PowerPerHour: 100
+--- !u!114 &1872118826471376611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684934527256959382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ecd36144c2459c93c5a83678298eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 1976370621947130355}
+  power: {fileID: 6910746163014891924}
+  changeType: 0
+  lights: []
+  emissiveMesh: {fileID: 7185220706437533140}
+  onMaterial: {fileID: 2100000, guid: 559c96d2754c1774d952cc0f2979bbd0, type: 2}
+  offMaterial: {fileID: 2100000, guid: d8a62ab40d402914da72efdd0c273534, type: 2}

@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 544567281266299978}
+  - component: {fileID: 3069228088192704110}
+  - component: {fileID: 5861806804611541128}
   m_Layer: 0
   m_Name: CleanerBot
   m_TagString: Untagged
@@ -33,6 +35,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3069228088192704110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544567281266299979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811f25ead4454fc18853575c575d1f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  DisplayName: Cleaner Bot
+  Status: 
+  GadgetType: 9
+--- !u!114 &5861806804611541128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544567281266299979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bae7e82f18b4a78996fa89d7d1347c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 0
+  PowerPerHour: 0
 --- !u!1 &544567281724061896
 GameObject:
   m_ObjectHideFlags: 0

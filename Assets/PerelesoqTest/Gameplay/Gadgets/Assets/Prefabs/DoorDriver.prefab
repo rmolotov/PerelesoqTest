@@ -181,6 +181,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7870429339412488838}
+  - component: {fileID: 7267400692238007379}
+  - component: {fileID: 2522746771415551857}
+  - component: {fileID: 3545310419987827443}
   m_Layer: 0
   m_Name: DoorDriver
   m_TagString: Untagged
@@ -206,6 +209,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7267400692238007379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3701008896104864288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811f25ead4454fc18853575c575d1f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  DisplayName: Door
+  Status: 
+  GadgetType: 8
+--- !u!114 &2522746771415551857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3701008896104864288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bae7e82f18b4a78996fa89d7d1347c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 0
+  PowerPerHour: 36000
+--- !u!114 &3545310419987827443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3701008896104864288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f8990b02e040388256e8c33d1b36e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 7267400692238007379}
+  power: {fileID: 2522746771415551857}
+  stateText: {fileID: 7575623853682366001}
+  doorPivot: {fileID: 0}
+  openingDuration: 5
+  openingAngle: 90
 --- !u!1 &4218355069146211326
 GameObject:
   m_ObjectHideFlags: 0
