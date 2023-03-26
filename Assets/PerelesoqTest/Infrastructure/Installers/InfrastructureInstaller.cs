@@ -10,7 +10,7 @@ namespace PerelesoqTest.Infrastructure.Installers
     {
         public override void InstallBindings()
         {
-            Container.Bind<IAssetProvider>().To<AddressableProvider>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AddressableProvider>().AsSingle();
             Container.Bind<SceneLoader>().AsSingle();
             
             BindServices();
