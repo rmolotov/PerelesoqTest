@@ -23,10 +23,14 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
         [Range(1f, 180f)]
         [SerializeField] private float openingAngle;
 
+        [ShowInInspector, ReadOnly]
         private bool _isOpen = false;
         
         public override void Activate()
         {
+            if (inputPort.Inputs[0].Current == 0)
+                return;
+            
             AnimateDoor();
             base.Activate();
         }

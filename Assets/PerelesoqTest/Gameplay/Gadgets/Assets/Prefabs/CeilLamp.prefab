@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info: {fileID: 2576845150468303178}
   power: {fileID: 9146258454753623697}
+  inputPort: {fileID: 951023467492407770}
   changeType: 0
   lights: []
   emissiveMesh: {fileID: 2814923424774917239}

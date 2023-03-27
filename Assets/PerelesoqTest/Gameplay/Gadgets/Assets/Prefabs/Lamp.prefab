@@ -1727,6 +1727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info: {fileID: 4382267958954957721}
   power: {fileID: 8347139864011163590}
+  inputPort: {fileID: 3357902367076796293}
   changeType: 1
   lights:
   - {fileID: 4419821855055792401}

@@ -1,4 +1,5 @@
-﻿using PerelesoqTest.Services.Logging;
+﻿using PerelesoqTest.Gameplay.Gadgets.Ports;
+using PerelesoqTest.Services.Logging;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
@@ -7,13 +8,16 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
 {
     [RequireComponent(typeof(GadgetBaseInfo))]
     [RequireComponent(typeof(GadgetPowerInfo))]
+    [RequireComponent(typeof(InputPort))]
     public abstract class BaseFunction : MonoBehaviour
     {
-        [BoxGroup("Info components")]
-        [SerializeField] protected GadgetBaseInfo info;
-        
-        [BoxGroup("Info components")]
-        [SerializeField] protected GadgetPowerInfo power;
+        [BoxGroup("Info components")] [SerializeField]
+        protected GadgetBaseInfo info;
+        [BoxGroup("Info components")] [SerializeField]
+        protected GadgetPowerInfo power;
+
+        [BoxGroup("Connections")] [SerializeField]
+        protected InputPort inputPort;
         
         private ILoggingService _loggingService;
         

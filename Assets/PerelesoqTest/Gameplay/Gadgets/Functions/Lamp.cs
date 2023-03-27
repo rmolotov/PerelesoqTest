@@ -17,6 +17,14 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
         
         [ShowIf("@changeType != LampChangeType.DisableLights")]
         [SerializeField] private Material onMaterial, offMaterial;
+
+        private void OnEnable() =>
+            inputPort.CurrentChanged += _ =>
+            {
+                if (inputPort.Inputs[0].Current > 0) Activate();
+                else Deactivate();
+            };
+
         public override void Activate()
         {
             SwitchLamp(true);

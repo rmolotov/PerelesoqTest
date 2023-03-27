@@ -8,7 +8,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
 {
     [RequireComponent(typeof(InputPort))]
     [RequireComponent(typeof(OutputPort))]
-    public class ConnectorBase : MonoBehaviour
+    public abstract class ConnectorBase : MonoBehaviour
     {
         [BoxGroup("Connections")] [SerializeField]
         protected InputPort inputPort;
@@ -25,11 +25,11 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
         [BoxGroup("Indicators")] [SerializeField]
         protected Material onMaterial, offMaterial;
 
-        private Action<int> CurrentHandler;
+        private Action<int> _currentHandler;
 
         protected virtual void OnEnable()
         {
-            inputPort.CurrentChanged += CurrentHandler = _ => ChangeOutputCurrent();
+            inputPort.CurrentChanged += _currentHandler = _ => ChangeOutputCurrent();
             inputPort.CurrentChanged += ChangeInputIndicatorMaterial;
 
             outputPort.CurrentChanged += ChangeOutputIndicatorMaterial;
@@ -37,7 +37,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
 
         protected virtual void OnDisable()
         {
-            inputPort.CurrentChanged -= CurrentHandler;
+            inputPort.CurrentChanged -= _currentHandler;
             inputPort.CurrentChanged -= ChangeInputIndicatorMaterial;
             
             outputPort.CurrentChanged -= ChangeOutputIndicatorMaterial;

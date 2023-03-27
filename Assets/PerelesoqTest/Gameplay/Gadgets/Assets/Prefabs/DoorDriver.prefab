@@ -254,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info: {fileID: 7267400692238007379}
   power: {fileID: 2522746771415551857}
+  inputPort: {fileID: 7840949636781951196}
   stateText: {fileID: 7575623853682366001}
   doorPivot: {fileID: 0}
   openingDuration: 5
