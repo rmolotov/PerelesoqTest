@@ -822,6 +822,7 @@ GameObject:
   - component: {fileID: 700215501730706544}
   - component: {fileID: 2242574055809381950}
   - component: {fileID: 5369910498575037687}
+  - component: {fileID: 2740463282701662910}
   m_Layer: 0
   m_Name: Bridge
   m_TagString: Untagged
@@ -889,6 +890,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Current: 0
+--- !u!114 &2740463282701662910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6287267153043613739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcc4467e4704bbe84edbdcf574128fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputPort: {fileID: 2242574055809381950}
+  outputPort: {fileID: 5369910498575037687}
+  inputIndicatorsMeshes:
+  - {fileID: 8617516045383888855}
+  outputIndicatorMesh: {fileID: 8617516045383888855}
+  onMaterial: {fileID: 2100000, guid: 8f06f88536682b94abaffa2764b52f9f, type: 2}
+  offMaterial: {fileID: 2100000, guid: 0beffbed72a29764c911945ff80620af, type: 2}
 --- !u!1 &7640148440475113017
 GameObject:
   m_ObjectHideFlags: 0
@@ -4040,7 +4060,7 @@ GameObject:
   - component: {fileID: 347456590033672862}
   - component: {fileID: 8617516045383888855}
   m_Layer: 0
-  m_Name: Cylinder.2
+  m_Name: IndicatorInputOutput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

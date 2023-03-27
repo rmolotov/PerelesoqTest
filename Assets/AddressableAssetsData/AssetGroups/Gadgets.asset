@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Gadgets
+  m_EditorClassIdentifier: 
+  m_GroupName: Gadgets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 97ec6d960f6f9e84cabafc64e96b50c8
+  m_SerializeEntries:
+  - m_GUID: 3ac9501c7655dbf4496b16a1dcd37c86
+    m_Address: Bridge
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 62fb774aa9fc72c4c9d11aaae1dadcca
+    m_Address: Camera
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bed348c1be16d994e9e26e615014b115
+    m_Address: CeilLamp
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 91085d37a3c4da6429677fa7b49dac73
+    m_Address: DoorDriver
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 246750ba87993bc448275a44e289674c
+    m_Address: Gate
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 030463e6a3620f743b4911b71f78bdf6
+    m_Address: Lamp
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 07e2f3d1b9ca84c47aabbb28f30f3458
+    m_Address: PowerSource
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d2ee769f6be0f654ca45a2374b8389f0
+    m_Address: Switch
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bf71a01dd86d74749b37a79a5d68c624, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 56c93f78ba0b2c54b88db5ba38850ad3, type: 2}
+    - {fileID: 11400000, guid: 20576cbff49c1f24ca7b81aa5cf55b52, type: 2}

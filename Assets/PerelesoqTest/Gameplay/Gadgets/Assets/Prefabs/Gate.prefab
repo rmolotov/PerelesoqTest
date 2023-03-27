@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 6653580237259357832}
   - component: {fileID: 6145308407584948448}
   - component: {fileID: 4536019563363807463}
+  - component: {fileID: 2592480112228271293}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -233,6 +234,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Current: 0
+--- !u!114 &2592480112228271293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202604170031219955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcc4467e4704bbe84edbdcf574128fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputPort: {fileID: 6145308407584948448}
+  outputPort: {fileID: 4536019563363807463}
+  inputIndicatorsMeshes:
+  - {fileID: 7389468757001462661}
+  - {fileID: 4735559387770921667}
+  outputIndicatorMesh: {fileID: 3386247213280508309}
+  onMaterial: {fileID: 2100000, guid: 8f06f88536682b94abaffa2764b52f9f, type: 2}
+  offMaterial: {fileID: 2100000, guid: 0beffbed72a29764c911945ff80620af, type: 2}
 --- !u!1 &2670087269659233843
 GameObject:
   m_ObjectHideFlags: 0
@@ -3656,9 +3677,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: 935a14bb2096cb943a7035509a29ed89, type: 2}
-  - {fileID: 2100000, guid: 0beffbed72a29764c911945ff80620af, type: 2}
+  - {fileID: 2100000, guid: 8f06f88536682b94abaffa2764b52f9f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3671,7 +3690,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -3743,7 +3762,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1064
+  m_VersionIndex: 1072
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 959330548311915675}
   - component: {fileID: 2059155278788536729}
   - component: {fileID: 6226019294966607747}
+  - component: {fileID: 8195830825391337814}
   m_Layer: 0
   m_Name: PowerSource
   m_TagString: Untagged
@@ -65,6 +66,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Current: 0
+--- !u!114 &8195830825391337814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959330548311915676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97535ac0bc45484eb26430d1e0a581b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outputPort: {fileID: 6226019294966607747}
+  indicatorMesh: {fileID: 3683634389145551354}
+  onMaterial: {fileID: 2100000, guid: 8f06f88536682b94abaffa2764b52f9f, type: 2}
+  offMaterial: {fileID: 2100000, guid: 0beffbed72a29764c911945ff80620af, type: 2}
 --- !u!1 &2710927054021415187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,8 +1798,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: 935a14bb2096cb943a7035509a29ed89, type: 2}
   - {fileID: 2100000, guid: 8f06f88536682b94abaffa2764b52f9f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1796,7 +1811,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1868,7 +1883,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2284
+  m_VersionIndex: 2300
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
