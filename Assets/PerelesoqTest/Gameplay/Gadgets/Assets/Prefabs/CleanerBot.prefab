@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 544567281266299978}
   - component: {fileID: 3069228088192704110}
   - component: {fileID: 5861806804611541128}
+  - component: {fileID: -6877533758008212107}
   m_Layer: 0
   m_Name: CleanerBot
   m_TagString: Untagged
@@ -65,6 +66,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 0
   PowerPerHour: 0
+--- !u!114 &-6877533758008212107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544567281266299979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb80be542971413c8292d6a6943ed547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inputs: []
 --- !u!1 &544567281724061896
 GameObject:
   m_ObjectHideFlags: 0

@@ -1656,6 +1656,7 @@ GameObject:
   - component: {fileID: 4382267958954957721}
   - component: {fileID: 8347139864011163590}
   - component: {fileID: 1240442373312320609}
+  - component: {fileID: 3357902367076796293}
   m_Layer: 0
   m_Name: Lamp
   m_TagString: Untagged
@@ -1733,6 +1734,19 @@ MonoBehaviour:
   emissiveMesh: {fileID: 0}
   onMaterial: {fileID: 0}
   offMaterial: {fileID: 0}
+--- !u!114 &3357902367076796293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488502559412146252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb80be542971413c8292d6a6943ed547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inputs: []
 --- !u!1 &9003575194112234733
 GameObject:
   m_ObjectHideFlags: 0
