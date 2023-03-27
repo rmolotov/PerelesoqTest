@@ -19,17 +19,26 @@ namespace PerelesoqTest.Gameplay.Gadgets
         private Material onMaterial, offMaterial;
 
         [ShowInInspector, ReadOnly]
-        private bool _active = false;
-        
-        
+        private bool _active;
+
+        private void Start() => 
+            InitialPowerOn();
+
         [Button, GUIColor(0.89f, 0.553f, 0.275f)]
-        private void Interact()
+        public void Interact()
         {
             _active = !_active;
             ChangeOutputCurrent();
-            ChangeIndicatorMaterial();
+            ChangeOutputIndicatorMaterial();
         }
-        
+
+        private void InitialPowerOn()
+        {
+            _active = true;
+            ChangeOutputCurrent();
+            ChangeOutputIndicatorMaterial();
+        }
+
         private void ChangeOutputCurrent()
         {
             outputPort.Current = _active
@@ -38,7 +47,7 @@ namespace PerelesoqTest.Gameplay.Gadgets
             outputPort.CurrentChanged?.Invoke();
         }
 
-        private void ChangeIndicatorMaterial() =>
+        private void ChangeOutputIndicatorMaterial() =>
             indicatorMesh.sharedMaterial = outputPort.Current > 0
                 ? onMaterial
                 : offMaterial;

@@ -25,15 +25,19 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
         private void Construct(ILoggingService logger) => 
             _loggingService = logger;
 
+        [Button, GUIColor(0.89f, 0.553f, 0.275f)]
+        public virtual void Interact() => 
+            _loggingService.LogMessage("react to interaction", GetType().Name);
+
         [Button, GUIColor(0,1,0)]
-        public virtual void Activate()
+        protected virtual void Activate()
         {
             power.Active = true;
             ReportState(power.Active);
         }
 
         [Button, GUIColor(1,0,0)]
-        public virtual void Deactivate()
+        protected virtual void Deactivate()
         {
             power.Active = false;
             ReportState(power.Active);

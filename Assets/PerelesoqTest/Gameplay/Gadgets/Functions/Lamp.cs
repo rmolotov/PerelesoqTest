@@ -25,13 +25,13 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
                 else Deactivate();
             };
 
-        public override void Activate()
+        protected override void Activate()
         {
             SwitchLamp(true);
             base.Activate();
         }
 
-        public override void Deactivate()
+        protected override void Deactivate()
         {
             SwitchLamp(false);
             base.Deactivate();

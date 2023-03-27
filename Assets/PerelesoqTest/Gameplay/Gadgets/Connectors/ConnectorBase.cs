@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using PerelesoqTest.Gameplay.Gadgets.Ports;
+using PerelesoqTest.Services.Logging;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace PerelesoqTest.Gameplay.Gadgets.Connectors
 {
@@ -25,8 +27,13 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
         [BoxGroup("Indicators")] [SerializeField]
         protected Material onMaterial, offMaterial;
 
+        protected ILoggingService _loggingService;
         private Action<int> _currentHandler;
 
+        [Inject]
+        private void Construct(ILoggingService logger) => 
+            _loggingService = logger;
+        
         protected virtual void OnEnable()
         {
             inputPort.CurrentChanged += _currentHandler = _ => ChangeOutputCurrent();
