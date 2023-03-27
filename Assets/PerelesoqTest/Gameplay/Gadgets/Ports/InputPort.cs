@@ -7,22 +7,22 @@ namespace PerelesoqTest.Gameplay.Gadgets.Ports
     public class InputPort : MonoBehaviour
     {
         public List<OutputPort> Inputs;
-        public event Action<int> CurrentChanged;
+        public Action<int> CurrentChanged;
 
         private readonly List<Action> _inputHandlers = new();
 
-        private void Awake()
+        private void OnEnable()
         {
-            foreach (var input in Inputs)
+            foreach (var connectedOutput in Inputs)
             {
-                void Handler() => CurrentChanged?.Invoke(Inputs.IndexOf(input));
+                void Handler() => CurrentChanged?.Invoke(Inputs.IndexOf(connectedOutput));
                 _inputHandlers.Add(Handler);
 
-                input.CurrentChanged += Handler;
+                connectedOutput.CurrentChanged += Handler;
             }
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             for (var index = 0; index < _inputHandlers.Count; index++)
                 Inputs[index].CurrentChanged -= _inputHandlers[index];

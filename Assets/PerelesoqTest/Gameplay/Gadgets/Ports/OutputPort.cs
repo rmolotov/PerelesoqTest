@@ -7,6 +7,6 @@ namespace PerelesoqTest.Gameplay.Gadgets.Ports
     public class OutputPort : MonoBehaviour
     {
         public int Current;
-        public event Action CurrentChanged;
+        public Action CurrentChanged;
     }
 }
