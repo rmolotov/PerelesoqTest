@@ -10,10 +10,9 @@ namespace PerelesoqTest.Infrastructure.SceneManagement
 {
     public class SceneLoader
     {
-        private readonly string[] _levelLayersSuffixes = {"", "_Env", "_Nav", "_Lights", "_UI"};
-        
         private readonly IAssetProvider _assetProvider;
         private readonly ILoggingService _logger;
+        private SceneInstance _uiScene;
 
         public SceneLoader(ILoggingService logger, IAssetProvider assetProvider)
         {
@@ -32,20 +31,25 @@ namespace PerelesoqTest.Infrastructure.SceneManagement
             return scene;
         }
         
-        public async Task<List<SceneInstance>> LoadSet(string sceneName, Action<string> onLoaded = null)
+        public async Task<Dictionary<SceneLayerType, SceneInstance>> LoadSet(string sceneName, Action<string> onLoaded = null)
         {
-            var result = new List<SceneInstance>();
-            for (var index = 0; index < _levelLayersSuffixes.Length; index++)
+            var result = new Dictionary<SceneLayerType, SceneInstance>();
+            
+            foreach (var sceneLayerType in (SceneLayerType[]) Enum.GetValues(typeof(SceneLayerType)))
             {
-                var scene = await _assetProvider.LoadScene(
-                    sceneName + _levelLayersSuffixes[index],
-                    mode: index == 0 ? LoadSceneMode.Single : LoadSceneMode.Additive);
-                result.Add(scene);
-                scene.ActivateAsync();
+                var sceneKey = sceneName + (sceneLayerType == SceneLayerType.MAIN ? "" :  $"_{sceneLayerType}");
                 
-                _logger.LogMessage($"{sceneName + _levelLayersSuffixes[index]} loaded for level set", nameof(SceneLoader));
+                var scene = await _assetProvider.LoadScene(
+                    sceneName: sceneKey,
+                    mode: sceneLayerType == SceneLayerType.MAIN 
+                        ? LoadSceneMode.Single : LoadSceneMode.Additive);
+                
+                result.Add(sceneLayerType, scene);
+                scene.ActivateAsync();
             }
 
+            _logger.LogMessage($"all scene layers loaded for {sceneName}", nameof(SceneLoader));
+            
             onLoaded?.Invoke(sceneName);
             return result;
         }
