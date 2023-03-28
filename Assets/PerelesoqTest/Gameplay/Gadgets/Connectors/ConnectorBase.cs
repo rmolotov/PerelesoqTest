@@ -27,12 +27,12 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
         [BoxGroup("Indicators")] [SerializeField]
         protected Material onMaterial, offMaterial;
 
-        protected ILoggingService _loggingService;
+        protected ILoggingService LoggingService;
         private Action<int> _currentHandler;
 
         [Inject]
         private void Construct(ILoggingService logger) => 
-            _loggingService = logger;
+            LoggingService = logger;
         
         protected virtual void OnEnable()
         {
@@ -56,13 +56,14 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
         private void ChangeInputIndicatorMaterial(int index)
         {
             if (index < inputIndicatorsMeshes.Count)
-                inputIndicatorsMeshes[index].sharedMaterial = inputPort.Inputs[index].Current > 0
-                    ? onMaterial
-                    : offMaterial;
+                inputIndicatorsMeshes[index].sharedMaterial =
+                    inputPort.Inputs[index].Current > Constants.OffCurrentValue
+                        ? onMaterial
+                        : offMaterial;
         }
 
         private void ChangeOutputIndicatorMaterial() =>
-            outputIndicatorMesh.sharedMaterial = outputPort.Current > 0
+            outputIndicatorMesh.sharedMaterial = outputPort.Current > Constants.OffCurrentValue
                 ? onMaterial
                 : offMaterial;
     }

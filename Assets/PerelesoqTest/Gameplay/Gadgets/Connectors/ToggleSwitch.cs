@@ -20,14 +20,14 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
         public void Interact()
         {
             AnimateSwitch();
-            _loggingService.LogMessage("react to interaction", GetType().Name);
+            LoggingService.LogMessage("react to interaction", GetType().Name);
         }
 
         protected override void ChangeOutputCurrent()
         {
             outputPort.Current = active 
                 ? inputPort.Inputs[0].Current
-                : 0;
+                : Constants.OffCurrentValue;
             base.ChangeOutputCurrent();
         }
 

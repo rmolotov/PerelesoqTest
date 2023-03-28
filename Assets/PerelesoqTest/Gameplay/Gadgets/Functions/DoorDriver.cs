@@ -26,7 +26,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
         
         public override void Interact()
         {
-            if (inputPort.Inputs[0].Current == 0)
+            if (inputPort.Inputs[0].Current == Constants.OffCurrentValue)
                 return;
             
             AnimateDoor();

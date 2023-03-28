@@ -99,6 +99,10 @@ PrefabInstance:
       propertyPath: m_text
       value: OR
       objectReference: {fileID: 0}
+    - target: {fileID: 6091214453024667399, guid: 246750ba87993bc448275a44e289674c, type: 3}
+      propertyPath: gateType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6653580237259357832, guid: 246750ba87993bc448275a44e289674c, type: 3}
       propertyPath: DisplayName
       value: Gate OR

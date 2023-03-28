@@ -21,7 +21,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
         private void OnEnable() =>
             inputPort.CurrentChanged += _ =>
             {
-                if (inputPort.Inputs[0].Current > 0) Activate();
+                if (inputPort.Inputs[0].Current > Constants.OffCurrentValue) Activate();
                 else Deactivate();
             };
 

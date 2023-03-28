@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1202604170031219956}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &8708960200585796865
 MeshFilter:
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6653580237259357832}
   - component: {fileID: 6145308407584948448}
   - component: {fileID: 4536019563363807463}
-  - component: {fileID: 2592480112228271293}
+  - component: {fileID: 6091214453024667399}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -185,8 +185,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7883900565824904966}
-  - {fileID: 7873501213861345175}
   - {fileID: 2087343424122150861}
+  - {fileID: 7873501213861345175}
   - {fileID: 1378689330986928397}
   - {fileID: 1336930111021058817}
   m_Father: {fileID: 0}
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Current: 0
---- !u!114 &2592480112228271293
+--- !u!114 &6091214453024667399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1202604170031219955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebcc4467e4704bbe84edbdcf574128fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b20f794aff44b3995f4e708ba8ba198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputPort: {fileID: 6145308407584948448}
@@ -254,6 +254,7 @@ MonoBehaviour:
   outputIndicatorMesh: {fileID: 3386247213280508309}
   onMaterial: {fileID: 2100000, guid: 8f06f88536682b94abaffa2764b52f9f, type: 2}
   offMaterial: {fileID: 2100000, guid: 0beffbed72a29764c911945ff80620af, type: 2}
+  gateType: 0
 --- !u!1 &2670087269659233843
 GameObject:
   m_ObjectHideFlags: 0
@@ -3799,7 +3800,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1202604170031219956}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &3178719343651610749
 MeshFilter:

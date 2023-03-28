@@ -7,9 +7,6 @@ namespace PerelesoqTest.Gameplay.Gadgets
     [RequireComponent(typeof(OutputPort))]
     public class PowerSource : MonoBehaviour
     {
-        private const int OnCurrentValue  = 220;
-        private const int OffCurrentValue = 0;
-
         [BoxGroup("Connections")] [SerializeField]
         private OutputPort outputPort;
 
@@ -42,8 +39,8 @@ namespace PerelesoqTest.Gameplay.Gadgets
         private void ChangeOutputCurrent()
         {
             outputPort.Current = _active
-                ? OnCurrentValue
-                : OffCurrentValue;
+                ? Constants.OnCurrentValue
+                : Constants.OffCurrentValue;
             outputPort.CurrentChanged?.Invoke();
         }
 
