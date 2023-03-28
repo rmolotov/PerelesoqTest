@@ -1,4 +1,5 @@
-﻿using PerelesoqTest.Gameplay.Gadgets.Ports;
+﻿using System.Collections.Generic;
+using PerelesoqTest.Gameplay.Gadgets.Ports;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,24 +16,38 @@ namespace PerelesoqTest.Gameplay.Gadgets
         [BoxGroup("Indicators")] [SerializeField]
         private Material onMaterial, offMaterial;
 
+        [BoxGroup("ElectricityMeter")] [SerializeField]
+        private ElectricityMeter electricityMeter;
+        [BoxGroup("ElectricityMeter")] [SerializeField]
+        private List<GadgetPowerInfo> connectedGadgets = new();
+        
+        #region EditorHelpers
+
         [ShowInInspector, ReadOnly][TitleGroup("Actions/Status", Order = 1)]
         private bool _active;
 
-        private void Start() => 
-            InitialPowerOn();
-
         [BoxGroup("Actions")][ButtonGroup("Actions/Buttons")]
         [Button, GUIColor(0.89f, 0.553f, 0.275f)]
-        public void Interact()
+        private void Interact()
         {
             _active = !_active;
+            electricityMeter.Active = _active;
+            
             ChangeOutputCurrent();
             ChangeOutputIndicatorMaterial();
         }
 
+        #endregion
+        
+        private void Start() => 
+            InitialPowerOn();
+
         private void InitialPowerOn()
         {
             _active = true;
+            electricityMeter.Active = true;
+            electricityMeter.Initialize(connectedGadgets);
+            
             ChangeOutputCurrent();
             ChangeOutputIndicatorMaterial();
         }
