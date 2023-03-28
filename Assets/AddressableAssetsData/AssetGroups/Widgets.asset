@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Widgets
+  m_EditorClassIdentifier: 
+  m_GroupName: Widgets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 55257d539a7753a4e84f551985f41c87
+  m_SerializeEntries:
+  - m_GUID: a008335cf31c7ed42af6cd66b54f9a9d
+    m_Address: Device_Camera
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b64b85bcca6567849ade321933d04d5b
+    m_Address: Device_CleanerBot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f391bf2cd9b2b5a4b87539c73db9f849
+    m_Address: Device_DoorDriver
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ccf58d821c65c3e4bad7f4e6d087504b
+    m_Address: Device_Lamp
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 77581754d3dbcf049bbbb9cb14afe641
+    m_Address: Device_LogicGate
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2bd7cbc29f1abfa499f4b61e26b4b0b2
+    m_Address: Device_ToggleSwitch
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bf71a01dd86d74749b37a79a5d68c624, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 01cda3a34709d6241ae171ae35a6abef, type: 2}
+    - {fileID: 11400000, guid: 69ffc766b2223794da87a822f3490020, type: 2}

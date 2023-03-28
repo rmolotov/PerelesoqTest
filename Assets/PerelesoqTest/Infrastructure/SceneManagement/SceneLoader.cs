@@ -31,26 +31,29 @@ namespace PerelesoqTest.Infrastructure.SceneManagement
             return scene;
         }
         
-        public async Task<Dictionary<SceneLayerType, SceneInstance>> LoadSet(string sceneName, Action<string> onLoaded = null)
+        public async Task<Dictionary<SceneLayerType, SceneInstance>> LoadSet(string sceneName)
         {
             var result = new Dictionary<SceneLayerType, SceneInstance>();
-            
+            var tasks = new List<Task>();
+
             foreach (var sceneLayerType in (SceneLayerType[]) Enum.GetValues(typeof(SceneLayerType)))
             {
                 var sceneKey = sceneName + (sceneLayerType == SceneLayerType.MAIN ? "" :  $"_{sceneLayerType}");
                 
-                var scene = await _assetProvider.LoadScene(
+                var task = _assetProvider.LoadScene(
                     sceneName: sceneKey,
                     mode: sceneLayerType == SceneLayerType.MAIN 
                         ? LoadSceneMode.Single : LoadSceneMode.Additive);
+
+                var scene = await task;
+                tasks.Add(task);
                 
                 result.Add(sceneLayerType, scene);
                 scene.ActivateAsync();
             }
 
+            await Task.WhenAll(tasks);
             _logger.LogMessage($"all scene layers loaded for {sceneName}", nameof(SceneLoader));
-            
-            onLoaded?.Invoke(sceneName);
             return result;
         }
     }

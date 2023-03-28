@@ -26,7 +26,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: bed348c1be16d994e9e26e615014b115
-    m_Address: CeilLamp
+    m_Address: LampCeil
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 91085d37a3c4da6429677fa7b49dac73
@@ -34,7 +34,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 246750ba87993bc448275a44e289674c
-    m_Address: Gate
+    m_Address: LogicGate
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 030463e6a3620f743b4911b71f78bdf6
@@ -46,7 +46,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: d2ee769f6be0f654ca45a2374b8389f0
-    m_Address: Switch
+    m_Address: ToggleSwitch
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

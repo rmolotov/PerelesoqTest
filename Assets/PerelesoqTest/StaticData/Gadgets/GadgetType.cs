@@ -11,7 +11,7 @@
         Camera,
         
         Lamp,
-        CeilLamp,
+        LampCeil,
         DoorDriver,
         CleanerBot
     }

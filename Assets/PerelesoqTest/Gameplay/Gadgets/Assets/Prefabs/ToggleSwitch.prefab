@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 7413294790769756340}
   - component: {fileID: 6447769362629123134}
   m_Layer: 0
-  m_Name: Switch
+  m_Name: ToggleSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

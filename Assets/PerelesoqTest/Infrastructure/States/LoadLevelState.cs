@@ -1,6 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using PerelesoqTest.Infrastructure.Factories.Interfaces;
 using PerelesoqTest.Infrastructure.SceneManagement;
 using PerelesoqTest.Infrastructure.States.Interfaces;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 namespace PerelesoqTest.Infrastructure.States
 {
@@ -10,11 +14,16 @@ namespace PerelesoqTest.Infrastructure.States
         
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
+        private readonly IUIFactory _uiFactory;
 
-        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader)
+        public LoadLevelState(
+            GameStateMachine gameStateMachine, 
+            SceneLoader sceneLoader,
+            IUIFactory uiFactory)
         {
             _stateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
+            _uiFactory = uiFactory;
         }
 
         public async void Enter(string levelStaticData)
@@ -29,23 +38,25 @@ namespace PerelesoqTest.Infrastructure.States
 
         }
 
-        private async Task LoadScenesForLevel()
-        {
-            var sceneInstances = await _sceneLoader.LoadSet(SceneName, OnLoaded);
-            // todo: setup layers
-        }
+        private async Task LoadScenesForLevel() =>
+            await _sceneLoader
+                .LoadSet(SceneName)
+                .ContinueWith(task => OnLoaded(task.Result), TaskScheduler.FromCurrentSynchronizationContext());
 
-        private async void OnLoaded(string sceneName)
+        private async void OnLoaded(IReadOnlyDictionary<SceneLayerType, SceneInstance> loadedLayers)
         {
-            await InitUIRoot();
+            var uiLayerScene = loadedLayers[SceneLayerType.UI];
+            
+            await InitUIRoot(uiLayerScene);
             await InitGameWold();
             await InitUI();
             _stateMachine.Enter<GameLoopState>();
         }
         
-        private async Task InitUIRoot()
+        private async Task InitUIRoot(SceneInstance uiLayerScene)
         {
-
+            var uiRoot = await _uiFactory.CreateUIRoot();
+            SceneManager.MoveGameObjectToScene(uiRoot.gameObject, uiLayerScene.Scene);
         }
 
         private async Task InitGameWold()
@@ -54,10 +65,8 @@ namespace PerelesoqTest.Infrastructure.States
             await SetupGadgets();
         }
 
-        private async Task InitUI()
-        {
-
-        }
+        private async Task InitUI() => 
+            await _uiFactory.CreateHud();
 
         private void SetupCamera()
         {

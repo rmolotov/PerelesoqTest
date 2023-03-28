@@ -1,4 +1,6 @@
 ﻿using PerelesoqTest.Infrastructure.AssetManagement;
+using PerelesoqTest.Infrastructure.Factories;
+using PerelesoqTest.Infrastructure.Factories.Interfaces;
 using PerelesoqTest.Infrastructure.SceneManagement;
 using PerelesoqTest.Infrastructure.States;
 using PerelesoqTest.Services.Logging;
@@ -26,7 +28,7 @@ namespace PerelesoqTest.Infrastructure.Installers
 
         private void BindFactories()
         {
-            
+            Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
         }
     }
 }
