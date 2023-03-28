@@ -13,9 +13,10 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
         [BoxGroup("Switching specs")] [Range(0.1f, 180f)] [SerializeField]
         private float switchingAngle;
         
-        [SerializeField]
+        [ShowInInspector][TitleGroup("Actions/Status", Order = 1)][SerializeField]
         private bool active;
         
+        [BoxGroup("Actions")][ButtonGroup("Actions/Buttons")]
         [Button, GUIColor(0.89f, 0.553f, 0.275f)]
         public void Interact()
         {

@@ -21,7 +21,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
         [BoxGroup("Opening specs")] [Range(1f, 180f)] [SerializeField]
         private float openingAngle;
 
-        [ShowInInspector, ReadOnly]
+        [ShowInInspector, ReadOnly][TitleGroup("Actions/Status", Order = 1)]
         private bool _isOpen = false;
         
         public override void Interact()

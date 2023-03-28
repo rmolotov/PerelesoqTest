@@ -15,12 +15,13 @@ namespace PerelesoqTest.Gameplay.Gadgets
         [BoxGroup("Indicators")] [SerializeField]
         private Material onMaterial, offMaterial;
 
-        [ShowInInspector, ReadOnly]
+        [ShowInInspector, ReadOnly][TitleGroup("Actions/Status", Order = 1)]
         private bool _active;
 
         private void Start() => 
             InitialPowerOn();
 
+        [BoxGroup("Actions")][ButtonGroup("Actions/Buttons")]
         [Button, GUIColor(0.89f, 0.553f, 0.275f)]
         public void Interact()
         {
