@@ -743,9 +743,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 
-  DisplayName: Toggle Swittch
+  DisplayName: Toggle Switch
   Status: 
   GadgetType: 1
+  WidgetType: 1
 --- !u!114 &126231412132625156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,6 +794,7 @@ MonoBehaviour:
   togglePivot: {fileID: 8944119063021907303}
   switchingDuration: 1
   switchingAngle: 7.433
+  active: 0
 --- !u!1 &5165626563369386784
 GameObject:
   m_ObjectHideFlags: 0

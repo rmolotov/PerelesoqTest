@@ -226,6 +226,7 @@ MonoBehaviour:
   DisplayName: Door
   Status: 
   GadgetType: 8
+  WidgetType: 5
 --- !u!114 &2522746771415551857
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1699,6 +1699,7 @@ MonoBehaviour:
   DisplayName: Lamp
   Status: 
   GadgetType: 6
+  WidgetType: 4
 --- !u!114 &8347139864011163590
 MonoBehaviour:
   m_ObjectHideFlags: 0

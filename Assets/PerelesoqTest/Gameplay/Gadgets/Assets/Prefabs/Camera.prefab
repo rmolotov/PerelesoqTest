@@ -10880,6 +10880,7 @@ MonoBehaviour:
   DisplayName: Camera
   Status: 
   GadgetType: 5
+  WidgetType: 3
 --- !u!114 &6334646030723189707
 MonoBehaviour:
   m_ObjectHideFlags: 0

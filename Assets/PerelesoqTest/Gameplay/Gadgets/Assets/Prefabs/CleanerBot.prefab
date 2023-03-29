@@ -52,6 +52,7 @@ MonoBehaviour:
   DisplayName: Cleaner Bot
   Status: 
   GadgetType: 9
+  WidgetType: 6
 --- !u!114 &5861806804611541128
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -208,6 +208,7 @@ MonoBehaviour:
   DisplayName: Gate
   Status: 
   GadgetType: 2
+  WidgetType: 2
 --- !u!114 &6145308407584948448
 MonoBehaviour:
   m_ObjectHideFlags: 0

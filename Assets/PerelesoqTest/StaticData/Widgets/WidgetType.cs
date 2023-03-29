@@ -1,7 +1,8 @@
-﻿namespace PerelesoqTest.Gameplay.UI.Widgets
+﻿namespace PerelesoqTest.StaticData.Widgets
 {
     public enum WidgetType
     {
+        NONE,
         ToggleSwitch,
         LogicGate,
         Camera,

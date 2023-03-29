@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
+using UnityEngine;
+using Zenject;
+using PerelesoqTest.Gameplay.Gadgets;
 using PerelesoqTest.Gameplay.UI.Widgets;
 using PerelesoqTest.Infrastructure.AssetManagement;
 using PerelesoqTest.Infrastructure.Factories.Interfaces;
 using PerelesoqTest.Meta;
-using PerelesoqTest.StaticData.Gadgets;
-using UnityEngine;
-using Zenject;
 
 namespace PerelesoqTest.Infrastructure.Factories
 {
@@ -19,6 +19,7 @@ namespace PerelesoqTest.Infrastructure.Factories
         private readonly IAssetProvider _assetProvider;
         
         private Canvas _uiRoot;
+        private HudController _hud;
 
         public UIFactory(DiContainer container, IAssetProvider assetProvider)
         {
@@ -49,16 +50,20 @@ namespace PerelesoqTest.Infrastructure.Factories
             var hud = Object.Instantiate(prefab, _uiRoot.transform).GetComponent<HudController>();
 
             _container.Inject(hud);
-            return hud;
+            return _hud = hud;
         }
 
-        public async Task<WidgetBase> CreateWidget(GadgetType forGadget)
+        public async Task<WidgetBase> CreateWidget(GadgetBaseInfo gadgetInfo)
         {
-            var prefabKey = WidgetPrefabPrefix + forGadget;
+            var widgetType = gadgetInfo.WidgetType;
+            //switch case
+            
+            var prefabKey = WidgetPrefabPrefix + widgetType;
             var prefab = await _assetProvider.Load<GameObject>(key: prefabKey);
             
-            var widget = Object.Instantiate(prefab).GetComponent<WidgetBase>();
-            widget.Initialize();
+            var widget = Object.Instantiate(prefab, _hud.WidgetsContainer).GetComponent<WidgetBase>();
+            
+            widget.Initialize(gadgetInfo);
 
             return widget;
         }

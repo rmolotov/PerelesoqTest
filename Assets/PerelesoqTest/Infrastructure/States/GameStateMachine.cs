@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Zenject;
 using PerelesoqTest.Infrastructure.Factories.Interfaces;
 using PerelesoqTest.Infrastructure.SceneManagement;
 using PerelesoqTest.Infrastructure.States.Interfaces;
 using PerelesoqTest.Services.Logging;
-using Zenject;
 
 namespace PerelesoqTest.Infrastructure.States
 {
@@ -15,7 +15,11 @@ namespace PerelesoqTest.Infrastructure.States
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _currentState;
 
-        public GameStateMachine(SceneLoader sceneLoader, ILoggingService logger, IUIFactory uiFactory)
+        public GameStateMachine(
+            SceneLoader sceneLoader, 
+            ILoggingService logger, 
+            ILevelFactory levelFactory, 
+            IUIFactory uiFactory)
         {
             _logger = logger;
             
@@ -24,7 +28,7 @@ namespace PerelesoqTest.Infrastructure.States
                 [typeof(BootstrapState)]    = new BootstrapState(this),
                 [typeof(LoadProgressState)] = new LoadProgressState(this),
                 [typeof(LoadMetaState)]     = new LoadMetaState(this, sceneLoader),
-                [typeof(LoadLevelState)]    = new LoadLevelState(this, sceneLoader, uiFactory),
+                [typeof(LoadLevelState)]    = new LoadLevelState(this, sceneLoader, levelFactory, uiFactory),
                 [typeof(GameLoopState)]     = new GameLoopState(this),
             };
         }

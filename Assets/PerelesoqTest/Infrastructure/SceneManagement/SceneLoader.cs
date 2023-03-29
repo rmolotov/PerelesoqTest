@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using PerelesoqTest.Infrastructure.AssetManagement;
-using PerelesoqTest.Services.Logging;
+using UnityEngine;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
+using PerelesoqTest.Infrastructure.AssetManagement;
+using PerelesoqTest.Services.Logging;
 
 namespace PerelesoqTest.Infrastructure.SceneManagement
 {
@@ -56,5 +57,11 @@ namespace PerelesoqTest.Infrastructure.SceneManagement
             _logger.LogMessage($"all scene layers loaded for {sceneName}", nameof(SceneLoader));
             return result;
         }
+
+        public void MoveGameObjectToScene(GameObject gameObject, SceneInstance targetScene) => 
+            SceneManager.MoveGameObjectToScene(gameObject, targetScene.Scene);
+        
+        public void MoveGameObjectToScene(GameObject gameObject, Scene targetScene) => 
+            SceneManager.MoveGameObjectToScene(gameObject, targetScene);
     }
 }

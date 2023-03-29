@@ -135,6 +135,7 @@ MonoBehaviour:
   DisplayName: Ceil Lamp
   Status: 
   GadgetType: 7
+  WidgetType: 4
 --- !u!114 &9146258454753623697
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,10 +1,10 @@
-﻿using PerelesoqTest.Infrastructure.AssetManagement;
+﻿using Zenject;
+using PerelesoqTest.Infrastructure.AssetManagement;
 using PerelesoqTest.Infrastructure.Factories;
 using PerelesoqTest.Infrastructure.Factories.Interfaces;
 using PerelesoqTest.Infrastructure.SceneManagement;
 using PerelesoqTest.Infrastructure.States;
 using PerelesoqTest.Services.Logging;
-using Zenject;
 
 namespace PerelesoqTest.Infrastructure.Installers
 {
@@ -29,6 +29,7 @@ namespace PerelesoqTest.Infrastructure.Installers
         private void BindFactories()
         {
             Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
+            Container.Bind<ILevelFactory>().To<LevelFactory>().AsSingle();
         }
     }
 }

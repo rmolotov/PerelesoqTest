@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
+using UnityEngine;
+using PerelesoqTest.Gameplay.Gadgets;
 using PerelesoqTest.Gameplay.UI.Widgets;
 using PerelesoqTest.Meta;
-using PerelesoqTest.StaticData.Gadgets;
-using UnityEngine;
 
 namespace PerelesoqTest.Infrastructure.Factories.Interfaces
 {
@@ -13,6 +13,6 @@ namespace PerelesoqTest.Infrastructure.Factories.Interfaces
         
         Task<Canvas> CreateUIRoot();
         Task<HudController> CreateHud();
-        Task<WidgetBase> CreateWidget(GadgetType forGadget);
+        Task<WidgetBase> CreateWidget(GadgetBaseInfo forGadget);
     }
 }
