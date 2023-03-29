@@ -32,25 +32,22 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
 
         [ButtonGroup("Actions/Buttons")]
         [Button, GUIColor(0,1,0)]
-        protected virtual void Activate()
-        {
+        protected virtual void Activate() => 
             power.Active = true;
-            ReportState(power.Active);
-        }
 
         [ButtonGroup("Actions/Buttons")]
         [Button, GUIColor(1,0,0)]
-        protected virtual void Deactivate()
-        {
+        protected virtual void Deactivate() => 
             power.Active = false;
-            ReportState(power.Active);
-        }
 
-        private void ReportState(bool state) =>
+        protected virtual void ReportStatus(bool state)
+        {
+            info.StatusChanged?.Invoke(info.Status);
             _loggingService.LogMessage(
                 state
                     ? "activated"
                     : "deactivated",
                 GetType().Name);
+        }
     }
 }

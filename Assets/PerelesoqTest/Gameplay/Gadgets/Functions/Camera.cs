@@ -29,5 +29,10 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
             CinemachineBrain.SoloCamera = virtualCamera;
             base.Interact();
         }
+
+        protected override void ReportStatus(bool state)
+        {
+            
+        }
     }
 }

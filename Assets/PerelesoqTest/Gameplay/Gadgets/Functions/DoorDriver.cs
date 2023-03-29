@@ -34,6 +34,12 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
             base.Interact();
         }
 
+        protected override void ReportStatus(bool state)
+        {
+            info.Status = _isOpen;
+            base.ReportStatus(state);
+        }
+
         private void AnimateDoor() =>
             doorPivot
                 .DOLocalRotate(
@@ -45,6 +51,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
                 .onComplete += () =>
                 {
                     _isOpen = !_isOpen;
+                    ReportStatus(_isOpen);
                     ChangeStateText();
                     Deactivate();
                 };
