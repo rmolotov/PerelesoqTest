@@ -32,7 +32,18 @@ namespace PerelesoqTest.Meta
 
         private void SetupPowerSourceDisplay(ElectricityMeter electricityMeter)
         {
+            electricityMeter.ValuesUpdated += UpdateUI;
+        }
+        
+        private void UpdateUI(int current, float total, ulong upTime)
+        {
+            var hours   = upTime / 3600;
+            var minutes = upTime % 3600 / 60;
+            var seconds = upTime % 3600 % 60;
             
+            timerText.text   = $"TIME: {hours:00}H {minutes:00}M {seconds:00}S";
+            currentText.text = $"CURRENT: {current:000}W";
+            totalText.text   = $"TOTAL: {(int)total:00000}W";
         }
     }
 }

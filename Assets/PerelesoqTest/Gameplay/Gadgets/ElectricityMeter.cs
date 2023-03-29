@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -11,25 +12,28 @@ namespace PerelesoqTest.Gameplay.Gadgets
         private const int RefreshPeriod = 1;
         
         [BoxGroup("ElectricityMeter"), ReadOnly] [SerializeField] private int _currentPower;
-        [BoxGroup("ElectricityMeter"), ReadOnly] [SerializeField] private double _totalPower;
+        [BoxGroup("ElectricityMeter"), ReadOnly] [SerializeField] private float _totalPower;
         [BoxGroup("ElectricityMeter"), ReadOnly] [SerializeField] private ulong _uptimeSeconds = 0;
 
         [BoxGroup("UI Components")] [SerializeField] private TextMeshProUGUI currentText, totalText, timerText;
 
         [ReadOnly][TitleGroup("Status")]
         public bool Active;
-        
+
+        public Action<int, float, ulong> ValuesUpdated;
+
         private IEnumerable<GadgetPowerInfo> _gadgets;
 
         public void Initialize(IEnumerable<GadgetPowerInfo> gadgets)
         {
             _gadgets = gadgets;
+            ValuesUpdated += UpdateUI;
 
             DOTween.Sequence()
                 .AppendCallback(() =>
                 {
                     UpdateElectricityMeter();
-                    UpdateUI();
+                    ValuesUpdated?.Invoke(_currentPower, _totalPower, _uptimeSeconds);
                 })
                 .AppendInterval(RefreshPeriod)
                 .SetLoops(-1, LoopType.Incremental)
@@ -47,11 +51,15 @@ namespace PerelesoqTest.Gameplay.Gadgets
             _totalPower += _currentPower / 3600f;
         }
 
-        private void UpdateUI()
+        private void UpdateUI(int current, float total, ulong upTime)
         {
-            timerText.text =   $"TIME: {_uptimeSeconds/3600}H {_uptimeSeconds % 3600 / 60}M {_uptimeSeconds % 3600 % 60}s";
-            currentText.text = $"CURRENT: {_currentPower}W";
-            totalText.text =   $"TOTAL: {(int)_totalPower}W";
+            var hours   = upTime / 3600;
+            var minutes = upTime % 3600 / 60;
+            var seconds = upTime % 3600 % 60;
+            
+            timerText.text   = $"TIME: {hours:00}H {minutes:00}M {seconds:00}S";
+            currentText.text = $"CURRENT: {current:000}W";
+            totalText.text   = $"TOTAL: {(int)total:00000}W";
         }
 
         private int CalculateCurrentPower()
