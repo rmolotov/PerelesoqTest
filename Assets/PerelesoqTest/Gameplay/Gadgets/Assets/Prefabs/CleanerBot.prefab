@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3069228088192704110}
   - component: {fileID: 5861806804611541128}
   - component: {fileID: -6877533758008212107}
+  - component: {fileID: 1940355073125129035}
   m_Layer: 0
   m_Name: CleanerBot
   m_TagString: Untagged
@@ -48,9 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811f25ead4454fc18853575c575d1f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 
+  Id: CB
   DisplayName: Cleaner Bot
-  Status: 
   GadgetType: 9
   WidgetType: 6
 --- !u!114 &5861806804611541128
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
-  PowerPerHour: 0
+  PowerPerHour: 7200
 --- !u!114 &-6877533758008212107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,6 +80,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inputs: []
+--- !u!114 &1940355073125129035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544567281266299979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef33530169cc4682a5e13e4bece31350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 3069228088192704110}
+  power: {fileID: 5861806804611541128}
+  inputPort: {fileID: -6877533758008212107}
+  inputIndicatorsMeshes:
+  - {fileID: 544567281856710636}
+  onMaterial: {fileID: 2100000, guid: 8f06f88536682b94abaffa2764b52f9f, type: 2}
+  offMaterial: {fileID: 2100000, guid: 0beffbed72a29764c911945ff80620af, type: 2}
+  botTransform: {fileID: 544567281748608908}
 --- !u!1 &544567281724061896
 GameObject:
   m_ObjectHideFlags: 0

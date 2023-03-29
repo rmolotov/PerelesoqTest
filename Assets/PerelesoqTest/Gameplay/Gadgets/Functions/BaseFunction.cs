@@ -19,7 +19,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
         [BoxGroup("Connections")] [SerializeField]
         protected InputPort inputPort;
         
-        private ILoggingService _loggingService;
+        protected ILoggingService _loggingService;
         
         [Inject]
         private void Construct(ILoggingService logger) => 
