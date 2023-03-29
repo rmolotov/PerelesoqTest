@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PerelesoqTest.Gameplay.Gadgets;
 using UnityEngine.ResourceManagement.ResourceProviders;
-using PerelesoqTest.Gameplay.UI.Widgets;
 using PerelesoqTest.Infrastructure.Factories.Interfaces;
 using PerelesoqTest.Infrastructure.SceneManagement;
 using PerelesoqTest.Infrastructure.States.Interfaces;
+using PerelesoqTest.Meta;
+using PerelesoqTest.StaticData.Gadgets;
 using PerelesoqTest.StaticData.Widgets;
+using UnityEngine;
 
 namespace PerelesoqTest.Infrastructure.States
 {
@@ -18,6 +21,8 @@ namespace PerelesoqTest.Infrastructure.States
         private readonly SceneLoader _sceneLoader;
         private readonly ILevelFactory _levelFactory;
         private readonly IUIFactory _uiFactory;
+
+        private HudController _hud;
 
         public LoadLevelState(
             GameStateMachine gameStateMachine, 
@@ -53,8 +58,10 @@ namespace PerelesoqTest.Infrastructure.States
             var uiLayerScene = loadedLayers[SceneLayerType.UI];
             
             await InitUIRoot(uiLayerScene);
-            await InitUI();
+            _hud = await InitUI();
+            
             await InitGameWold();
+            
             _stateMachine.Enter<GameLoopState>();
         }
         
@@ -66,27 +73,35 @@ namespace PerelesoqTest.Infrastructure.States
 
         private async Task InitGameWold()
         {
-            SetupCamera();
             await SetupGadgets();
         }
 
-        private async Task InitUI() => 
+        private async Task<HudController> InitUI() => 
             await _uiFactory.CreateHud();
-
-        private void SetupCamera()
-        {
-
-        }
+        
 
         private async Task SetupGadgets()
         {
             var gadgets = await _levelFactory.CreateLevel();
-            var displayedGadgets = gadgets.Where(g => g.WidgetType is not WidgetType.NONE);
             
-            foreach (var gadget in displayedGadgets)
-            {
+            var displayedGadgets = gadgets
+                .Where(g => g.WidgetType is not WidgetType.NONE);
+            
+            var electricityMeter = gadgets
+                .Find(g => g.GadgetType == GadgetType.PowerSource)
+                .GetComponent<ElectricityMeter>();
+
+            SetupElectricityMeterUI(electricityMeter);
+            await SetupWidgets(displayedGadgets);
+        }
+
+        private void SetupElectricityMeterUI(ElectricityMeter meter) => 
+            _hud.Initialize(meter);
+
+        private async Task SetupWidgets(IEnumerable<GadgetBaseInfo> displayedGadgets)
+        {
+            foreach (var gadget in displayedGadgets) 
                 await _uiFactory.CreateWidget(forGadget: gadget);
-            }
         }
     }
 }
