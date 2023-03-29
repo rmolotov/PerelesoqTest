@@ -52,6 +52,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
                 emissiveMesh.sharedMaterial = value 
                     ? onMaterial 
                     : offMaterial;
+            
             ReportStatus(value);
         }
     }

@@ -56,12 +56,12 @@ namespace PerelesoqTest.Infrastructure.Factories
         public async Task<WidgetBase> CreateWidget(GadgetBaseInfo gadgetInfo)
         {
             var widgetType = gadgetInfo.WidgetType;
-            //switch case
-            
             var prefabKey = WidgetPrefabPrefix + widgetType;
-            var prefab = await _assetProvider.Load<GameObject>(key: prefabKey);
             
-            var widget = Object.Instantiate(prefab, _hud.WidgetsContainer).GetComponent<WidgetBase>();
+            var prefab = await _assetProvider.Load<GameObject>(key: prefabKey);
+            var widget = Object
+                .Instantiate(prefab, _hud.WidgetsContainer)
+                .GetComponent<WidgetBase>();
             
             widget.Initialize(gadgetInfo);
 

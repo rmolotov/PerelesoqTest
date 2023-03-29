@@ -12,14 +12,22 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
         [EnumToggleButtons] [SerializeField] 
         private LogicGateType gateType;
 
+        private bool _booleanOutput;
+
         protected override void ChangeOutputCurrent()
         {
-            var booleanOutput = CalculateBooleanOutput();
-            outputPort.Current = booleanOutput 
+            _booleanOutput = CalculateBooleanOutput();
+            outputPort.Current = _booleanOutput 
                 ? On
                 : Off;
             
             base.ChangeOutputCurrent();
+        }
+        
+        protected override void ReportStatus()
+        {
+            info.Status = _booleanOutput;
+            base.ReportStatus();
         }
 
         private bool CalculateBooleanOutput() =>
