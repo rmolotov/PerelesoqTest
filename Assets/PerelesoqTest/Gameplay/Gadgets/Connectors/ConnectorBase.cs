@@ -8,10 +8,14 @@ using Zenject;
 
 namespace PerelesoqTest.Gameplay.Gadgets.Connectors
 {
+    [RequireComponent(typeof(GadgetBaseInfo))]
     [RequireComponent(typeof(InputPort))]
     [RequireComponent(typeof(OutputPort))]
     public abstract class ConnectorBase : MonoBehaviour
     {
+        [BoxGroup("Info components")] [SerializeField]
+        protected GadgetBaseInfo info;
+        
         [BoxGroup("Connections")] [SerializeField]
         protected InputPort inputPort;
         [BoxGroup("Connections")] [SerializeField]
@@ -50,8 +54,16 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
             outputPort.CurrentChanged -= ChangeOutputIndicatorMaterial;
         }
 
-        protected virtual void ChangeOutputCurrent() => 
+        protected virtual void ChangeOutputCurrent()
+        {
             outputPort.CurrentChanged?.Invoke();
+            ReportStatus();
+        }
+
+        protected virtual void ReportStatus()
+        {
+            info.StatusChanged?.Invoke(info.Status);
+        }
 
         private void ChangeInputIndicatorMaterial(int index)
         {

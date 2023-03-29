@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Sirenix.OdinInspector;
-using PerelesoqTest.Gameplay.UI.Widgets;
 using PerelesoqTest.StaticData.Gadgets;
 using PerelesoqTest.StaticData.Widgets;
 
@@ -11,7 +11,11 @@ namespace PerelesoqTest.Gameplay.Gadgets
     {
         public string Id;
         public string DisplayName;
-        public string Status;
+        
+        [HideInInspector] 
+        public object Status;
+        
+        public Action<object> StatusChanged;
 
         [EnumPaging] public GadgetType GadgetType;
         [EnumPaging] public WidgetType WidgetType;

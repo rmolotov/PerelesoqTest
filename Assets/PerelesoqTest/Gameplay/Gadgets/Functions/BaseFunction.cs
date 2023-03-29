@@ -7,8 +7,8 @@ using Zenject;
 namespace PerelesoqTest.Gameplay.Gadgets.Functions
 {
     [RequireComponent(typeof(GadgetBaseInfo))]
-    [RequireComponent(typeof(GadgetPowerInfo))]
     [RequireComponent(typeof(InputPort))]
+    [RequireComponent(typeof(GadgetPowerInfo))]
     public abstract class BaseFunction : MonoBehaviour
     {
         [BoxGroup("Info components")] [SerializeField]

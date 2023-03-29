@@ -9,10 +9,15 @@ namespace PerelesoqTest.Gameplay.UI.Widgets
         [SerializeField] protected TextMeshProUGUI nameText;
         [SerializeField] protected TextMeshProUGUI statusText;
         
-        public void Initialize(GadgetBaseInfo gadgetInfo)
+        public virtual void Initialize(GadgetBaseInfo gadgetInfo)
         {
-            nameText.text = gadgetInfo.DisplayName;
-            statusText.text = gadgetInfo.Status;
+            nameText.text = $"{gadgetInfo.DisplayName} <color=grey>[{gadgetInfo.Id}]</color>";
+
+            gadgetInfo.StatusChanged += OnGadgetStatusChanged;
+            OnGadgetStatusChanged(gadgetInfo.Status);
         }
+        
+        protected virtual void OnGadgetStatusChanged(object status) =>
+            statusText.text = status?.ToString();
     }
 }

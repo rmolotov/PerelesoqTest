@@ -32,6 +32,12 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
             base.ChangeOutputCurrent();
         }
 
+        protected override void ReportStatus()
+        {
+            info.Status = active;
+            base.ReportStatus();
+        }
+
         private void AnimateSwitch() =>
             togglePivot
                 .DOLocalRotate(

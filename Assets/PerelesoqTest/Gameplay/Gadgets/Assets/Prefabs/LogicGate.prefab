@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b20f794aff44b3995f4e708ba8ba198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info: {fileID: 6653580237259357832}
   inputPort: {fileID: 6145308407584948448}
   outputPort: {fileID: 4536019563363807463}
   inputIndicatorsMeshes:

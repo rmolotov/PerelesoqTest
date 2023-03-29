@@ -864,6 +864,7 @@ MonoBehaviour:
   DisplayName: Bridge
   Status: 
   GadgetType: 4
+  WidgetType: 0
 --- !u!114 &2242574055809381950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,6 +903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebcc4467e4704bbe84edbdcf574128fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info: {fileID: 700215501730706544}
   inputPort: {fileID: 2242574055809381950}
   outputPort: {fileID: 5369910498575037687}
   inputIndicatorsMeshes:
