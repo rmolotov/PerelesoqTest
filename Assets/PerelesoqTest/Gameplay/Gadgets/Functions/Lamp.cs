@@ -36,6 +36,12 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
             SwitchLamp(false);
             base.Deactivate();
         }
+        
+        protected override void ReportStatus(bool state)
+        {
+            info.Status = state;
+            base.ReportStatus(state);
+        }
 
         private void SwitchLamp(bool value)
         {
@@ -46,6 +52,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
                 emissiveMesh.sharedMaterial = value 
                     ? onMaterial 
                     : offMaterial;
+            ReportStatus(value);
         }
     }
 }
