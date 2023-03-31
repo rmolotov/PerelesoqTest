@@ -4,7 +4,7 @@ using PerelesoqTest.Gameplay.Gadgets;
 
 namespace PerelesoqTest.Gameplay.UI.Widgets
 {
-    public class WidgetBase : MonoBehaviour
+    public abstract class WidgetBase : MonoBehaviour
     {
         [SerializeField] protected TextMeshProUGUI nameText;
         [SerializeField] protected TextMeshProUGUI statusText;
