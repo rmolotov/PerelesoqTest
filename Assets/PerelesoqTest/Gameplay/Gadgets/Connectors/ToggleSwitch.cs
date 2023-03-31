@@ -21,7 +21,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Connectors
         public void Interact()
         {
             AnimateSwitch();
-            LoggingService.LogMessage("react to interaction", GetType().Name);
+            LoggingService.LogMessage("react to interaction", this);
         }
 
         protected override void ChangeOutputCurrent()

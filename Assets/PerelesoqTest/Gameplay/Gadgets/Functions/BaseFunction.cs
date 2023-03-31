@@ -28,7 +28,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
         [BoxGroup("Actions")][ButtonGroup("Actions/Buttons")]
         [Button, GUIColor(0.89f, 0.553f, 0.275f)]
         public virtual void Interact() => 
-            _loggingService.LogMessage("react to interaction", GetType().Name);
+            _loggingService.LogMessage("react to interaction", this);
 
         [ButtonGroup("Actions/Buttons")]
         [Button, GUIColor(0,1,0)]
@@ -47,7 +47,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
                 state
                     ? "activated"
                     : "deactivated",
-                GetType().Name);
+                this);
         }
     }
 }

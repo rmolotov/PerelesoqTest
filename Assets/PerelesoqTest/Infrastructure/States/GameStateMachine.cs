@@ -59,7 +59,7 @@ namespace PerelesoqTest.Infrastructure.States
             var state = GetState<TState>();
             _currentState = state;
 
-            _logger.LogMessage($"state changed to {_currentState.GetType().Name}", nameof(GameStateMachine));
+            _logger.LogMessage($"state changed to {_currentState.GetType().Name}", this);
             
             return state;
         }

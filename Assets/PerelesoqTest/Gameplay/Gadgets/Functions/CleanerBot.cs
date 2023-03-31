@@ -44,7 +44,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
             DOTween.Sequence()
                 .AppendCallback(() =>
                 {
-                    _loggingService.LogMessage("bzzzz", GetType().Name);
+                    _loggingService.LogMessage("bzzzz", this);
                     Activate();
                     botTransform
                         .DOLocalMove(2 * Vector3.back, CleaningTime / 2);
@@ -53,7 +53,7 @@ namespace PerelesoqTest.Gameplay.Gadgets.Functions
                 .AppendInterval(CleaningTime / 2)
                 .AppendCallback(() =>
                 {
-                    _loggingService.LogMessage("bzzzz", GetType().Name);
+                    _loggingService.LogMessage("bzzzz", this);
                     botTransform
                         .DOLocalMove(Vector3.zero, CleaningTime / 2);
                 })

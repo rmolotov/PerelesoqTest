@@ -28,7 +28,7 @@ namespace PerelesoqTest.Infrastructure.SceneManagement
             
             onLoaded?.Invoke(sceneName);
             
-            _logger.LogMessage($"{sceneName} loaded in single mode", nameof(SceneLoader));
+            _logger.LogMessage($"{sceneName} loaded in single mode", this);
             return scene;
         }
         
@@ -54,7 +54,7 @@ namespace PerelesoqTest.Infrastructure.SceneManagement
             }
 
             await Task.WhenAll(tasks);
-            _logger.LogMessage($"all scene layers loaded for {sceneName}", nameof(SceneLoader));
+            _logger.LogMessage($"all scene layers loaded for {sceneName}", this);
             return result;
         }
 

@@ -1,5 +1,6 @@
 ﻿using PerelesoqTest.Gameplay.Gadgets;
 using PerelesoqTest.Infrastructure.States;
+using PerelesoqTest.Services.Logging;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -14,16 +15,23 @@ namespace PerelesoqTest.Meta
         [BoxGroup("ElectricityMeter")] [SerializeField] private TextMeshProUGUI currentText, totalText, timerText;
         
         public RectTransform WidgetsContainer;
+        
         private GameStateMachine _stateMachine;
+        private ILoggingService _logger;
 
         [Inject]
-        private void Construct(GameStateMachine stateMachine) => 
+        private void Construct(GameStateMachine stateMachine, ILoggingService loggingService)
+        {
             _stateMachine = stateMachine;
-        
+            _logger = loggingService;
+        }
+
         public void Initialize(ElectricityMeter electricityMeter)
         {
             SetupButtons();
             SetupPowerSourceDisplay(electricityMeter);
+            
+            _logger.LogMessage("initialized", this);
         }
 
         private void SetupButtons() =>
