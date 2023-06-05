@@ -6,7 +6,7 @@ using PerelesoqTest.StaticData;
 
 namespace PerelesoqTest.Infrastructure.Factories
 {
-    public class LevelFactory: ILevelFactory
+    public class LevelFactory : ILevelFactory
     {
         private LevelStaticData _levelStaticData;
 
@@ -17,15 +17,15 @@ namespace PerelesoqTest.Infrastructure.Factories
 
         public async Task WarmUp()
         {
-            
+
         }
 
         public void CleanUp()
         {
-            
+
         }
 
-        public Task<List<GadgetBaseInfo>> CreateLevel() => 
+        public Task<List<GadgetBaseInfo>> CreateLevel() =>
             Task.FromResult(_levelStaticData.Gadgets);
     }
 }

@@ -3,9 +3,9 @@
     public enum SceneLayerType
     {
         MAIN = 0,
-        Env,
-        Nav,
-        Lights,
-        UI
+        Env = 1,
+        Nav = 2,
+        Lights = 3,
+        UI = 4
     }
 }

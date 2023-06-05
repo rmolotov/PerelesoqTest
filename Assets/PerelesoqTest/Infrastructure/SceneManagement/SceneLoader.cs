@@ -15,12 +15,9 @@ namespace PerelesoqTest.Infrastructure.SceneManagement
         private readonly ILoggingService _logger;
         private SceneInstance _uiScene;
 
-        public SceneLoader(ILoggingService logger, IAssetProvider assetProvider)
-        {
-            _logger = logger;
-            _assetProvider = assetProvider;
-        }
-        
+        public SceneLoader(ILoggingService logger, IAssetProvider assetProvider) => 
+            (_logger, _assetProvider) = (logger, assetProvider);
+
         public async Task<SceneInstance> Load(string sceneName, Action<string> onLoaded = null)
         {
             var scene = await _assetProvider.LoadScene(sceneName);
